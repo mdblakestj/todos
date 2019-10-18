@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import logo from "./logo.svg";
 import "./App.css";
+
+import TodoForm from "./components/TodoForm";
 
 class App extends Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <TodoForm />
         {this.state.todos.map(item => (
           <div>
             <h1>{item.title}</h1>

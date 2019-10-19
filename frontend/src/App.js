@@ -15,7 +15,7 @@ class App extends Component {
   }
   getTodos() {
     axios
-      .get("http://127.0.0.1:8000/api/")
+      .get("http://127.0.0.1:8000/api/todo")
       .then(res => {
         this.setState({ todos: res.data });
       })

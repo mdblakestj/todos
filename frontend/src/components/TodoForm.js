@@ -27,10 +27,28 @@ class TodoForm extends React.Component {
     );
     event.preventDefault();
   }
+  postTodos(event) {
+    axios
+      .post(
+        "http://127.0.0.1:8000/api/todo/",
+        { title: this.state.title, body: this.state.body },
+        { headers: { "Content-Type": "application/json" } }
+      )
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form
+        onSubmit={e => {
+          this.postTodos(e);
+        }}
+      >
         <label>
           Title:
           <input
